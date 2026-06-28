@@ -66,3 +66,32 @@ def graficar_serie_con_interpolacion(
     plt.ylabel(columna_original)
     plt.legend()
     plt.show()
+
+def graficar_boxplots(df: pd.DataFrame, columnas: list[str] | None = None) -> None:
+    """
+    Grafica un boxplot por cada columna numérica para identificar outliers.
+
+    Args:
+        df: DataFrame con los datos.
+        columnas: Lista de columnas a graficar. Si es None, usa todas
+            las columnas numéricas del DataFrame.
+    """
+    if columnas is None:
+        columnas = df.select_dtypes(include="number").columns.tolist()
+
+    n_columnas = len(columnas)
+    n_filas = (n_columnas + 2) // 3
+
+    fig, axes = plt.subplots(n_filas, 3, figsize=(14, n_filas * 3))
+    axes = axes.flatten()
+
+    for i, columna in enumerate(columnas):
+        axes[i].boxplot(df[columna].dropna(), vert=True)
+        axes[i].set_title(columna)
+
+    for j in range(n_columnas, len(axes)):
+        fig.delaxes(axes[j])
+
+    plt.suptitle("Boxplots por variable — detección de outliers", y=1.02)
+    plt.tight_layout()
+    plt.show()
