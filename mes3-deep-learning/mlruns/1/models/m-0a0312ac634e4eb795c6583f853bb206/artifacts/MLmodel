@@ -1,0 +1,20 @@
+artifact_path: file:d:/Practica_Profesional/prep-sistema-predictivo-ia/mes3-deep-learning/mlruns/1/models/m-0a0312ac634e4eb795c6583f853bb206/artifacts
+flavors:
+  keras:
+    data: data
+    keras_backend: tensorflow
+    keras_version: 3.15.0
+    save_exported_model: false
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.keras
+    python_version: 3.13.4
+mlflow_version: 3.14.0
+model_id: m-0a0312ac634e4eb795c6583f853bb206
+model_size_bytes: 79415
+model_uuid: m-0a0312ac634e4eb795c6583f853bb206
+prompts: null
+run_id: 3e871b65b9db402e9b6076b46b39d51a
+utc_time_created: '2026-07-28 00:32:00.780691'
